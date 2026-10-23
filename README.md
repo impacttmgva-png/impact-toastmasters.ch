@@ -1,2 +1,2 @@
-# impact-toastmasters.com
+# impact-toastmasters.ch
 The website of Impact Toastmasters Geneva
