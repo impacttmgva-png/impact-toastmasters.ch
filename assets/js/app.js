@@ -84,13 +84,13 @@ const events = [
 	},
 	{
 		date: '2026-11-24',
-		url: 'https://www.meetup.com/impact-toastmasters-geneva/events/',
+		url: 'https://www.meetup.com/impact-toastmasters-geneva/events/316253067/',
 	},
 	{
 		date: '2026-12-08',
-		url: 'https://www.meetup.com/impact-toastmasters-geneva/events/',
+		url: 'https://www.meetup.com/impact-toastmasters-geneva/events/316253085/',
 		description:
-			"Impact's final meeting of 2026: Verbissimo and Impact come together for a French-English year-end celebration. Join us for an evening of sharing, good company and festive fun.",
+			"Impact Toastmaster's final meeting of 2026: Verbissimo and Impact will come together for a French-English year-end celebration. Join us for an evening of sharing, good company and festive fun.",
 	},
 ];
 
