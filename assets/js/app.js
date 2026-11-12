@@ -19,6 +19,60 @@ document.querySelectorAll('[data-filter]').forEach((button) =>
 	}),
 );
 
+const gallery = document.querySelector('.gallery-grid');
+const lightbox = document.querySelector('.lightbox');
+
+if (gallery && lightbox) {
+	const lightboxImage = lightbox.querySelector('.lightbox-image');
+	const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+	const closeButton = lightbox.querySelector('.lightbox-close');
+	const previousButton = lightbox.querySelector('.lightbox-prev');
+	const nextButton = lightbox.querySelector('.lightbox-next');
+	let visibleImages = [];
+	let currentIndex = 0;
+
+	const showImage = (index) => {
+		currentIndex = (index + visibleImages.length) % visibleImages.length;
+		const image = visibleImages[currentIndex];
+		lightboxImage.src = image.currentSrc || image.src;
+		lightboxImage.alt = image.alt;
+		lightboxCaption.textContent =
+			image.closest('figure').querySelector('h3')?.textContent.trim() || image.alt;
+	};
+
+	gallery.addEventListener('click', (event) => {
+		const image = event.target.closest('.club-photo');
+		if (!image) return;
+
+		visibleImages = [...gallery.querySelectorAll('.club-photo')].filter(
+			(galleryImage) => !galleryImage.closest('figure').hidden,
+		);
+		currentIndex = visibleImages.indexOf(image);
+		showImage(currentIndex);
+		lightbox.showModal();
+	});
+
+	closeButton.addEventListener('click', () => lightbox.close());
+	previousButton.addEventListener('click', () => showImage(currentIndex - 1));
+	nextButton.addEventListener('click', () => showImage(currentIndex + 1));
+
+	lightbox.addEventListener('click', (event) => {
+		if (event.target === lightbox) lightbox.close();
+	});
+
+	lightbox.addEventListener('keydown', (event) => {
+		if (event.key === 'Escape') {
+			lightbox.close();
+		} else if (event.key === 'ArrowLeft') {
+			event.preventDefault();
+			showImage(currentIndex - 1);
+		} else if (event.key === 'ArrowRight') {
+			event.preventDefault();
+			showImage(currentIndex + 1);
+		}
+	});
+}
+
 const events = [
 	{
 		date: '2026-10-27',
