@@ -86,6 +86,12 @@ const events = [
 		date: '2026-11-24',
 		url: 'https://www.meetup.com/impact-toastmasters-geneva/events/',
 	},
+	{
+		date: '2026-12-08',
+		url: 'https://www.meetup.com/impact-toastmasters-geneva/events/',
+		description:
+			"Impact's final meeting of 2026: Verbissimo and Impact come together for a French-English year-end celebration. Join us for an evening of sharing, good company and festive fun.",
+	},
 ];
 
 const now = new Date();
@@ -179,7 +185,7 @@ if (list) {
 								day: 'numeric',
 								month: 'long',
 							})}</strong>
-							<span>Club meeting · 19:00–21:00</span>
+							<span>${event.description || 'Club meeting · 19:00–21:00'}</span>
 							<a class="text-link" href="${event.url}">View on Meetup ↗</a>
 						</div>
 					`,
